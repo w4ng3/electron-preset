@@ -1,21 +1,15 @@
-import messages from '@intlify/unplugin-vue-i18n/messages'
-// import { setupLayouts } from 'virtual:generated-layouts'
+import type { App } from 'vue'
 import { createApp } from 'vue'
-import { createI18n } from 'vue-i18n'
-// import { routes } from 'vue-router/auto-routes'
-
-import App from './App.vue'
+import MyApp from './App.vue'
 import 'virtual:uno.css'
 import './assets/main.css'
 
-const i18n = createI18n({
-  legacy: false,
-  locale: 'zh-CN',
-  fallbackLocale: 'zh-CN',
-  messages,
-})
 
-const app = createApp(App)
-app.use(i18n)
+const app = createApp(MyApp)
+// 自动导入模块
+const modules = import.meta.glob<{ install: (app: App) => void }>('./modules/*.ts', { eager: true })
+Object.entries(modules).forEach(([_key, value]) => {
+  value.install?.(app)
+})
 
 app.mount('#app')

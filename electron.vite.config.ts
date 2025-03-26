@@ -27,15 +27,15 @@ export default defineConfig({
       },
     },
     plugins: [
-      vue(),
-      UnoCSS(),
-      vueJsx(),
       /** @see https://github.com/posva/unplugin-vue-router */
       VueRouter({
         extensions: ['.vue', '.md'],
         routesFolder: 'src/renderer/src/pages',
         dts: 'src/renderer/src/types/typed-router.d.ts',
       }),
+      vue(), // ⚠️ Vue must be placed after VueRouter()
+      UnoCSS(),
+      vueJsx(),
       /** @see https://github.com/JohnCampionJr/vite-plugin-vue-layouts */
       Layouts(),
       /** @see https://github.com/antfu/unplugin-auto-import */
