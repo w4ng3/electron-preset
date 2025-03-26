@@ -1,13 +1,13 @@
 <template>
   <main
-    px-4
-    py-10
+    class="px-4 py-10"
     text="center gray-700 dark:gray-200"
   >
     <RouterView />
-    <!-- <TheFooter /> -->
+    <TheFooter />
     <div text-sm mx-auto mt-5 text-center opacity-50>
       [Home Layout]
     </div>
+    <Versions />
   </main>
 </template>

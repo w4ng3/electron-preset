@@ -1,12 +1,14 @@
 import path, { resolve } from 'node:path'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
+import Shiki from '@shikijs/markdown-it'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
+import LinkAttributes from 'markdown-it-link-attributes'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-// import Markdown from 'unplugin-vue-markdown/vite'
+import Markdown from 'unplugin-vue-markdown/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import VueRouter from 'unplugin-vue-router/vite'
 import VueDevTools from 'vite-plugin-vue-devtools'
@@ -26,14 +28,39 @@ export default defineConfig({
         '@renderer': resolve('src/renderer/src'),
       },
     },
+    assetsInclude: ['**/*.md'],
     plugins: [
       /** @see https://github.com/posva/unplugin-vue-router */
       VueRouter({
         extensions: ['.vue', '.md'],
         routesFolder: 'src/renderer/src/pages',
+        exclude: ['**/components/**'],
         dts: 'src/renderer/src/types/typed-router.d.ts',
       }),
-      vue(), // ⚠️ Vue must be placed after VueRouter()
+      vue({
+        include: [/\.vue$/, /\.md$/],
+      }), // ⚠️ Vue must be placed after VueRouter()
+      // https://github.com/unplugin/unplugin-vue-markdown
+      Markdown({
+        wrapperClasses: 'prose prose-sm m-auto text-left',
+        headEnabled: true,
+        async markdownItSetup(md) {
+          md.use(LinkAttributes, {
+            matcher: (link: string) => /^https?:\/\//.test(link),
+            attrs: {
+              target: '_blank',
+              rel: 'noopener',
+            },
+          })
+          md.use(await Shiki({
+            defaultColor: false,
+            themes: {
+              light: 'vitesse-light',
+              dark: 'vitesse-dark',
+            },
+          }))
+        },
+      }),
       UnoCSS(),
       vueJsx(),
       /** @see https://github.com/JohnCampionJr/vite-plugin-vue-layouts */

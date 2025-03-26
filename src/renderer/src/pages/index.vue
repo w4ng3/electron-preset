@@ -17,14 +17,18 @@ const { t } = useI18n()
 
 <template>
   <div>
-    <div text-4xl>
-      <div i-carbon-campsite inline-block />
+    <img alt="logo" class="mx-a size-24" src="../assets/svgs/electron.svg">
+    <div class="">
+      Electron Vitesse
     </div>
-    <p>
-      <a rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank">
-        Vitesse
-      </a>
-    </p>
+    <div class="text-2xl">
+      Build an Electron app with
+      <span class="vue">Vue</span>
+      and
+      <span class="ts">TypeScript</span>
+    </div>
+
+
     <p>
       <em text-sm opacity-75>{{ t('intro.desc') }}</em>
     </p>

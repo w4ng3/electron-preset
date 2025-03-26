@@ -2,7 +2,7 @@ import type { App } from 'vue'
 import { createApp } from 'vue'
 import MyApp from './App.vue'
 import 'virtual:uno.css'
-import './assets/main.css'
+import './assets/styles/main.css'
 
 
 const app = createApp(MyApp)
