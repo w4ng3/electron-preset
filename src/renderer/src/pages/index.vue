@@ -18,20 +18,10 @@ const { t } = useI18n()
 <template>
   <div>
     <img alt="logo" class="mx-a size-24" src="../assets/svgs/electron.svg">
-    <div class="">
-      Electron Vitesse
+    <div class="text-3xl mt-3">
+      <span class="vue">Electron-</span>
+      <span class="ts">Vitesse</span>
     </div>
-    <div class="text-2xl">
-      Build an Electron app with
-      <span class="vue">Vue</span>
-      and
-      <span class="ts">TypeScript</span>
-    </div>
-
-
-    <p>
-      <em text-sm opacity-75>{{ t('intro.desc') }}</em>
-    </p>
 
     <div py-4 />
 

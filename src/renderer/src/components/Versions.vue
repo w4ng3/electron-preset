@@ -2,25 +2,9 @@
 import { reactive } from 'vue'
 
 const versions = reactive({ ...window.electron.process.versions })
-
-const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
 </script>
 
 <template>
-  <div mt-10>
-    <p class="tip">
-      Please try pressing <code>F12</code> to open the devTool
-    </p>
-
-    <div class="flex justify-center">
-      <div class="action">
-        <a href="https://electron-vite.org/" target="_blank" rel="noreferrer">Documentation</a>
-      </div>
-      <div class="action">
-        <a target="_blank" rel="noreferrer" @click="ipcHandle">Send IPC</a>
-      </div>
-    </div>
-  </div>
   <ul class="versions">
     <li class="electron-version">
       Electron v{{ versions.electron }}

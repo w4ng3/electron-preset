@@ -9,7 +9,6 @@ const operationStatus = ref<Record<string, string>>({})
 const loadDevices = async (): Promise<void> => {
   try {
     devices.value = await window.api.getHidDevices()
-    console.log('devices ???:>> ', devices.value)
   }
   catch (error) {
     console.error('Error loading HID devices:', error)
@@ -139,11 +138,11 @@ onMounted(() => {
 <style scoped>
 .devices-container {
   padding: 20px;
-  max-height: 500px;
+  max-height: 450px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background-color: pink;
+  background-color: #f3f3f3;
 }
 
 .no-devices {
