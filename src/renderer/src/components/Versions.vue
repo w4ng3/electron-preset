@@ -38,7 +38,7 @@ const versions = reactive({ ...window.electron.process.versions })
 .versions li {
   display: block;
   float: left;
-  border-right: 1px solid var(--ev-c-gray-1);
+  border-right: 1px solid #515c67;
   padding: 0 20px;
   font-size: 14px;
   line-height: 14px;

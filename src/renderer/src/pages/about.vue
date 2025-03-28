@@ -10,11 +10,11 @@ const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
 
     <Devices />
 
-    <div class="flex justify-center">
-      <div class="action">
+    <div class="mt-4 flex gap-4 justify-center">
+      <div class="p2 rounded-md bg-cyan cursor-pointer">
         <a href="https://electron-vite.org/" target="_blank" rel="noreferrer">Documentation</a>
       </div>
-      <div class="action">
+      <div class="p2 rounded-md bg-cyan cursor-pointer">
         <a target="_blank" rel="noreferrer" @click="ipcHandle">Send IPC</a>
       </div>
     </div>
