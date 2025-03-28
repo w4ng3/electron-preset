@@ -2,8 +2,9 @@
 defineOptions({
   name: 'IndexPage',
 })
-// const user = useUserStore()
-const name = ref('')
+const user = useUserStore()
+
+const name = ref(user.savedName)
 
 const router = useRouter()
 function go() {
@@ -18,7 +19,7 @@ const { t } = useI18n()
 <template>
   <div>
     <img alt="logo" class="mx-a size-24" src="../assets/svgs/electron.svg">
-    <div class="text-3xl mt-3">
+    <div class="text-3xl font-mono mt-3">
       <span class="vue">Electron-</span>
       <span class="ts">Vitesse</span>
     </div>
@@ -34,13 +35,7 @@ const { t } = useI18n()
     <label class="hidden" for="input">{{ t('intro.whats-your-name') }}</label>
 
     <div>
-      <button
-        text-sm
-        m-3
-        btn
-        :disabled="!name"
-        @click="go"
-      >
+      <button text-sm m-3 btn :disabled="!name" @click="go">
         {{ t('button.go') }}
       </button>
     </div>

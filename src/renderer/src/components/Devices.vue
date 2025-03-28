@@ -137,12 +137,8 @@ onMounted(() => {
 
 <style scoped>
 .devices-container {
-  padding: 20px;
-  max-height: 450px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  background-color: #f3f3f3;
+  --uno: bg-#f3f3f3 dark: bg-cyan;
+  --uno: flex flex-col max-h-108 p-5 overflow-hidden;
 }
 
 .no-devices {

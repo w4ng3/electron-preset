@@ -9,11 +9,15 @@ function toggleLocales() {
 
 <template>
   <nav flex="~ gap-4" text-xl mt-6 justify-center>
-    <RouterLink icon-btn to="/" :title="t('button.home')">
+    <RouterLink text-teal-600 to="/" :title="t('button.home')">
       <div i-carbon-campsite />
     </RouterLink>
 
-    <button icon-btn :title="t('button.toggle_dark')" @click="toggleDark()">
+    <button
+      border-none
+      class="outline-transparent"
+      icon-btn :title="t('button.toggle_dark')" @click="toggleDark()"
+    >
       <div i="carbon-sun dark:carbon-moon" />
     </button>
 

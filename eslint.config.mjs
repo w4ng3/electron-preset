@@ -17,15 +17,11 @@ export default antfu({
     'unused-imports/no-unused-vars': 'warn',
     'symbol-description': 'warn',
     'no-unused-vars': 'warn',
-    'unused-imports/no-unused-imports': 'error', // 禁止未使用的导入
+    'unused-imports/no-unused-imports': 'error',
     'test/consistent-test-it': ['error', { withinDescribe: 'test' }],
-    'ts/no-explicit-any': 'off', // 使用any
+    'ts/no-explicit-any': 'off',
     'jsdoc/sort-tags': ['warn'],
     'ts/ban-ts-comment': 'off',
-    'vue/max-attributes-per-line': ['error', { // 强制执行模板中每行的多个属性
-      singleline: { max: 5 },
-      multiline: { max: 1 },
-    }],
     'ts/no-unsafe-function-type': 'off',
     'react-dom/no-missing-button-type': 'off',
     'style/jsx-one-expression-per-line': ['warn', { allow: 'non-jsx' }],

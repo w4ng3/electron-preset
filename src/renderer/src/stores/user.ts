@@ -29,6 +29,8 @@ export const useUserStore = defineStore('user', () => {
     otherNames,
     savedName,
   }
+}, {
+  persist: true,
 })
 
 // 在开发模式下，当用户Store发生变化时，自动更新
