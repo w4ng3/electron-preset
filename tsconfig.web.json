@@ -7,7 +7,7 @@
     "baseUrl": ".",
     "module": "ES2022",
     "paths": {
-      "@renderer/*": [
+      "@r/*": [
         "src/renderer/src/*"
       ]
     },

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useUserStore } from '@renderer/stores/user'
+import { useUserStore } from '@r/stores/user'
 
 const router = useRouter()
 const route = useRoute('/hi/[name]')

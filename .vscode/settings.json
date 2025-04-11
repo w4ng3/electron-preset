@@ -1,4 +1,7 @@
 {
+  "path-intellisense.mappings": {
+    "@r": "${workspaceFolder}/src/renderer/src"
+  },
   // unocss 提示模糊匹配
   "unocss.autocomplete.matchType": "fuzzy",
   "i18n-ally.localesPaths": [
