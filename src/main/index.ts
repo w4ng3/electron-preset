@@ -21,6 +21,41 @@ function createWindow(): void {
     },
   })
 
+  mainWindow.webContents.session.on('select-hid-device', (event, details, callback) => {
+    // `select-hid-device` is called.
+    mainWindow.webContents.session.on('hid-device-added', (_event, device) => {
+      console.log('hid-device-added FIRED WITH', device)
+      // Optionally update details.deviceList
+    })
+
+    mainWindow.webContents.session.on('hid-device-removed', (_event, device) => {
+      console.log('hid-device-removed FIRED WITH', device)
+      // Optionally update details.deviceList
+    })
+
+    event.preventDefault()
+    if (details.deviceList && details.deviceList.length > 0) {
+      callback(details.deviceList[0].deviceId)
+    }
+  })
+
+  // @ts-expect-error
+  mainWindow.webContents.session.setPermissionCheckHandler((webContents, permission, _requestingOrigin, _details) => {
+    // if (permission === 'hid' && details.securityOrigin === 'file:///') {
+    if (permission === 'hid') {
+      return true
+    }
+  })
+
+
+  mainWindow.webContents.session.setDevicePermissionHandler((details) => {
+    // if (details.deviceType === 'hid' && details.origin === 'file://') {
+    if (details.deviceType === 'hid') {
+      return true
+    }
+    return false
+  })
+
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
   })

@@ -4,6 +4,7 @@
     "antfu.iconify",
     "lokalise.i18n-ally",
     "vue.volar",
-    "antfu.unocss"
+    "antfu.unocss",
+    "christian-kohler.path-intellisense"
   ]
 }
