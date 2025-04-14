@@ -1,4 +1,4 @@
-import path, { resolve } from 'node:path'
+import { resolve } from 'node:path'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -23,6 +23,7 @@ export default defineConfig({
     resolve: {
       alias: {
         '@r': resolve('src/renderer/src'),
+        '@assets': resolve('../../assets'),
       },
     },
     plugins: [
@@ -68,7 +69,8 @@ export default defineConfig({
         runtimeOnly: true,
         compositionOnly: true,
         fullInstall: true,
-        include: [path.resolve(__dirname, 'src/renderer/locales/**')],
+        // include: [resolve('src/renderer/locales/**')],
+        include: [resolve('../../assets/locales/**')], // tips: 项目外的文件，不会热更新
       }),
       /** @see https://github.com/webfansplz/vite-plugin-vue-devtools */
       VueDevTools(),

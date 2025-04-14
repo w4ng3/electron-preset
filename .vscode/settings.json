@@ -1,11 +1,13 @@
 {
   "path-intellisense.mappings": {
-    "@r": "${workspaceFolder}/src/renderer/src"
+    "@r": "${workspaceFolder}/packages/client/src/renderer/src",
+    "@assets": "${workspaceFolder}/assets"
   },
   // unocss 提示模糊匹配
   "unocss.autocomplete.matchType": "fuzzy",
   "i18n-ally.localesPaths": [
-    "src/renderer/locales"
+    // "src/renderer/locales"
+    "assets/locales"
   ],
   "i18n-ally.sourceLanguage": "zh-CN",
   "i18n-ally.enabledParsers": [
@@ -65,5 +67,20 @@
     "scss",
     "pcss",
     "postcss"
-  ]
+  ],
+
+  "editor.fontSize": 12,
+  "window.zoomLevel": 0,
+  // 这些文件将不会显示在工作空间中
+  "files.exclude": {
+    "**/.git": false,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/*.js": {
+      "when": "$(basename).ts" // ts编译后生成的js文件将不会显示在工作区中
+    },
+    "**/node_modules": false
+  }
 }

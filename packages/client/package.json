@@ -1,0 +1,73 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An Electron application with Vue and TypeScript",
+  "author": "example.com",
+  "homepage": "https://electron-vite.org",
+  "main": "./out/main/index.js",
+  "engines": {
+    "node": ">=18.12",
+    "pnpm": ">=9.5"
+  },
+  "scripts": {
+    "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
+    "typecheck:web": "vue-tsc --noEmit -p tsconfig.web.json --composite false",
+    "typecheck": "npm run typecheck:node && npm run typecheck:web",
+    "start": "electron-vite preview",
+    "dev": "electron-vite dev",
+    "build": "npm run typecheck && electron-vite build",
+    "postinstall": "electron-builder install-app-deps",
+    "build:unpack": "npm run build && electron-builder --dir",
+    "build:win": "npm run build && electron-builder --win",
+    "build:mac": "npm run build && electron-builder --mac",
+    "build:linux": "npm run build && electron-builder --linux",
+    "lint": "eslint --cache .",
+    "lint:fix": "eslint . --fix",
+    "lint:view": "npx @eslint/config-inspector"
+  },
+  "dependencies": {
+    "@electron-toolkit/preload": "^3.0.1",
+    "@electron-toolkit/utils": "^4.0.0",
+    "@vitejs/plugin-vue-jsx": "^4.1.2",
+    "@vueuse/core": "^13.0.0",
+    "electron-updater": "^6.3.9",
+    "lint-staged": "^15.5.0",
+    "node-hid": "^3.1.2",
+    "pinia": "^3.0.1",
+    "pinia-plugin-persistedstate": "^4.2.0",
+    "vue-i18n": "^11.1.2",
+    "vue-router": "4"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.11.0",
+    "@electron-toolkit/tsconfig": "^1.0.1",
+    "@iconify-json/carbon": "^1.2.8",
+    "@intlify/unplugin-vue-i18n": "^6.0.5",
+    "@types/node": "^22.13.4",
+    "@unocss/eslint-plugin": "66.1.0-beta.6",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "electron": "35.1.4",
+    "electron-builder": "^25.1.8",
+    "electron-vite": "^3.0.0",
+    "eslint": "^9.20.1",
+    "eslint-plugin-format": "^1.0.1",
+    "simple-git-hooks": "^2.12.1",
+    "typescript": "catalog:",
+    "unocss": "catalog:",
+    "unplugin-auto-import": "^19.1.1",
+    "unplugin-vue-components": "^28.4.1",
+    "unplugin-vue-router": "^0.12.0",
+    "vite": "catalog:",
+    "vite-plugin-vue-devtools": "^7.7.2",
+    "vite-plugin-vue-layouts": "^0.11.0",
+    "vue": "catalog:",
+    "vue-tsc": "^2.2.2"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}

@@ -1,71 +1,43 @@
 {
-  "name": "electron-preset",
+  "name": "electron-preset-monorepo",
   "version": "1.0.0",
-  "private": true,
-  "description": "An Electron application with Vue and TypeScript",
-  "author": "example.com",
-  "homepage": "https://electron-vite.org",
-  "main": "./out/main/index.js",
+  "description": "",
+  "author": "w4ng3",
+  "license": "ISC",
+  "keywords": [],
   "engines": {
     "node": ">=18.12",
     "pnpm": ">=9.5"
   },
   "scripts": {
-    "format": "prettier --write .",
-    "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
-    "typecheck:web": "vue-tsc --noEmit -p tsconfig.web.json --composite false",
-    "typecheck": "npm run typecheck:node && npm run typecheck:web",
-    "start": "electron-vite preview",
-    "dev": "electron-vite dev",
-    "build": "npm run typecheck && electron-vite build",
-    "postinstall": "electron-builder install-app-deps",
-    "build:unpack": "npm run build && electron-builder --dir",
-    "build:win": "npm run build && electron-builder --win",
-    "build:mac": "npm run build && electron-builder --mac",
-    "build:linux": "npm run build && electron-builder --linux",
-    "lint": "eslint --cache .",
+    "preinstall": "npx only-allow pnpm",
+    "client:dev": "pnpm -F client dev",
+    "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "lint:view": "npx @eslint/config-inspector"
+    "lint:view": "npx @eslint/config-inspector",
+    "clear": "npx rimraf **/node_modules"
   },
   "dependencies": {
-    "@electron-toolkit/preload": "^3.0.1",
-    "@electron-toolkit/utils": "^4.0.0",
-    "@vitejs/plugin-vue-jsx": "^4.1.2",
-    "@vueuse/core": "^13.0.0",
-    "electron-updater": "^6.3.9",
-    "lint-staged": "^15.5.0",
-    "node-hid": "^3.1.2",
-    "pinia": "^3.0.1",
-    "pinia-plugin-persistedstate": "^4.2.0",
-    "vue-i18n": "^11.1.2",
-    "vue-router": "4"
+    "vue-i18n": "^11.1.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.11.0",
-    "@electron-toolkit/tsconfig": "^1.0.1",
     "@iconify-json/carbon": "^1.2.8",
-    "@intlify/unplugin-vue-i18n": "^6.0.5",
     "@types/node": "^22.13.4",
     "@unocss/eslint-plugin": "66.1.0-beta.6",
-    "@vitejs/plugin-vue": "^5.2.1",
-    "electron": "^34.2.0",
-    "electron-builder": "^25.1.8",
-    "electron-vite": "^3.0.0",
     "eslint": "^9.20.1",
     "eslint-plugin-format": "^1.0.1",
-    "eslint-plugin-vue": "^9.32.0",
-    "prettier": "^3.5.1",
     "simple-git-hooks": "^2.12.1",
-    "typescript": "^5.7.3",
-    "unocss": "66.1.0-beta.6",
-    "unplugin-auto-import": "^19.1.1",
-    "unplugin-vue-components": "^28.4.1",
-    "unplugin-vue-router": "^0.12.0",
-    "vite": "^6.1.0",
-    "vite-plugin-vue-devtools": "^7.7.2",
-    "vite-plugin-vue-layouts": "^0.11.0",
-    "vue": "^3.5.13",
-    "vue-tsc": "^2.2.2"
+    "typescript": "catalog:",
+    "unocss": "catalog:"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "eslint": ">=9.0.0",
+        "vite": ">=6.0.0"
+      }
+    }
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"

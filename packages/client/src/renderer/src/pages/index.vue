@@ -18,7 +18,7 @@ const { t } = useI18n()
 
 <template>
   <div>
-    <img alt="logo" class="mx-a size-24" src="@r/assets/svgs/electron.svg">
+    <img alt="logo" class="mx-a size-24" src="@assets/imgs/svgs/electron.svg">
     <div class="text-3xl font-mono mt-3">
       <span class="vue">Electron-</span>
       <span class="ts">Vitesse</span>

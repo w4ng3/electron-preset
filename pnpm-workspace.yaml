@@ -1,0 +1,10 @@
+packages:
+  - main-project
+  # 子目录下所有项目
+  - 'packages/*'
+
+catalog:
+  typescript: ^5.7.3
+  unocss: 66.1.0-beta.6
+  vite: ^6.1.0
+  vue: ^3.5.13
