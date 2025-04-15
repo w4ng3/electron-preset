@@ -55,6 +55,8 @@ importers:
         specifier: 'catalog:'
         version: 66.1.0-beta.6(postcss@8.5.3)(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1))(vue@3.5.13(typescript@5.8.3))
 
+  packages/_common: {}
+
   packages/client:
     dependencies:
       '@electron-toolkit/preload':
@@ -69,6 +71,9 @@ importers:
       '@vueuse/core':
         specifier: ^13.0.0
         version: 13.1.0(vue@3.5.13(typescript@5.8.3))
+      '@w4ng3/common':
+        specifier: workspace:^
+        version: link:../_common
       electron-updater:
         specifier: ^6.3.9
         version: 6.6.2

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Person } from '@w4ng3/common'
+
 defineOptions({
   name: 'IndexPage',
 })
@@ -14,15 +16,22 @@ function go() {
 }
 
 const { t } = useI18n()
+const p = new Person('Junmping', 'math')
 </script>
 
 <template>
   <div>
-    <img alt="logo" class="mx-a size-24" src="@assets/imgs/svgs/electron.svg">
+    <div flex justify-between>
+      <img alt="logo" class="size-24" src="@assets/imgs/svgs/electron.svg">
+      <img alt="logo" class="size-24" src="@assets/imgs/svgs/vite.svg">
+    </div>
+
     <div class="text-3xl font-mono mt-3">
       <span class="vue">Electron-</span>
       <span class="ts">Vitesse</span>
     </div>
+
+    <div> {{ `${p.name}:${p.slogan}` }}</div>
 
     <div py-4 />
 

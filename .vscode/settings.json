@@ -9,7 +9,7 @@
     // "src/renderer/locales"
     "assets/locales"
   ],
-  "i18n-ally.sourceLanguage": "zh-CN",
+  "i18n-ally.sourceLanguage": "zh",
   "i18n-ally.enabledParsers": [
     "ts",
     "js",

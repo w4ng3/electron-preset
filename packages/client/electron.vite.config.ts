@@ -11,7 +11,6 @@ import VueRouter from 'unplugin-vue-router/vite'
 import VueDevTools from 'vite-plugin-vue-devtools'
 import Layouts from 'vite-plugin-vue-layouts'
 
-
 export default defineConfig({
   main: {
     plugins: [externalizeDepsPlugin()],
@@ -69,8 +68,7 @@ export default defineConfig({
         runtimeOnly: true,
         compositionOnly: true,
         fullInstall: true,
-        // include: [resolve('src/renderer/locales/**')],
-        include: [resolve('../../assets/locales/**')], // tips: 项目外的文件，不会热更新
+        include: [resolve('../../assets/locales/**')],
       }),
       /** @see https://github.com/webfansplz/vite-plugin-vue-devtools */
       VueDevTools(),

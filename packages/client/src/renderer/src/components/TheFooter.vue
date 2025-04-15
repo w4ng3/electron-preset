@@ -1,8 +1,12 @@
 <script setup lang="ts">
-const { t, locale, availableLocales: locales } = useI18n()
+import { availableLocales, loadLanguageAsync } from '@r/modules/i18n'
 
-function toggleLocales() {
+const { t, locale } = useI18n()
+
+async function toggleLocales() {
+  const locales = availableLocales
   const newLocale = locales[(locales.indexOf(locale.value) + 1) % locales.length]
+  await loadLanguageAsync(newLocale)
   locale.value = newLocale
 }
 </script>
