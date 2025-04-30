@@ -46,6 +46,7 @@
     "@iconify-json/carbon": "^1.2.8",
     "@intlify/unplugin-vue-i18n": "^6.0.5",
     "@types/node": "^22.13.4",
+    "@types/w3c-web-hid": "^1.0.6",
     "@unocss/eslint-plugin": "66.1.0-beta.6",
     "@vitejs/plugin-vue": "^5.2.1",
     "electron": "^34.2.0",

@@ -8,8 +8,8 @@ const initWebHid = async () => {
       { vendorId: 0x2717, productId: 0x5086 },
       { vendorId: 0x2717, productId: 0xD003 },
     ]
-    // @ts-expect-error
-    navigator.hid.requestDevice({ filters }).then((devices: []) => {
+
+    navigator.hid.requestDevice({ filters }).then((devices) => {
       console.log('用户授权的设备: ', devices)
     })
   }
