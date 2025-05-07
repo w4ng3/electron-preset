@@ -1,9 +1,8 @@
 import type { App } from 'vue'
 import { createApp } from 'vue'
 import MyApp from './App.vue'
-import 'virtual:uno.css'
 import './assets/styles/main.css'
-
+import 'virtual:uno.css'
 
 const app = createApp(MyApp)
 // 自动导入模块

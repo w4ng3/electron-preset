@@ -35,10 +35,39 @@ const { t } = useI18n()
     <label class="hidden" for="input">{{ t('intro.whats-your-name') }}</label>
 
     <div>
-      <button text-sm m-3 btn :disabled="!name" @click="go">
+      <v-btn text-white mt-4 bg-teal-700 cursor-pointer class="bg-red-300" :disabled="!name" @click="go">
         {{ t('button.go') }}
-      </button>
+      </v-btn>
     </div>
+
+    <v-dialog max-width="500">
+      <template #activator="{ props: activatorProps }">
+        <v-btn
+          mt-4
+          v-bind="activatorProps"
+          color="surface-variant"
+          text="Open Dialog"
+          variant="flat"
+        />
+      </template>
+
+      <template #default="{ isActive }">
+        <v-card title="Dialog">
+          <v-card-text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </v-card-text>
+
+          <v-card-actions>
+            <v-spacer />
+
+            <v-btn
+              text="Close Dialog"
+              @click="isActive.value = false"
+            />
+          </v-card-actions>
+        </v-card>
+      </template>
+    </v-dialog>
   </div>
 </template>
 
@@ -46,3 +75,8 @@ const { t } = useI18n()
 meta:
   layout: home
 </route>
+
+
+<style scoped>
+
+</style>

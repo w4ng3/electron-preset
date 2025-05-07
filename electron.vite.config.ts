@@ -11,7 +11,6 @@ import VueRouter from 'unplugin-vue-router/vite'
 import VueDevTools from 'vite-plugin-vue-devtools'
 import Layouts from 'vite-plugin-vue-layouts'
 
-
 export default defineConfig({
   main: {
     plugins: [externalizeDepsPlugin()],
