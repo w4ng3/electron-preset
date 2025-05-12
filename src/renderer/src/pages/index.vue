@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useDate } from 'vuetify'
+
 defineOptions({
   name: 'IndexPage',
 })
@@ -14,6 +16,8 @@ function go() {
 }
 
 const { t } = useI18n()
+
+const date = useDate()
 </script>
 
 <template>
@@ -35,10 +39,13 @@ const { t } = useI18n()
     <label class="hidden" for="input">{{ t('intro.whats-your-name') }}</label>
 
     <div>
-      <v-btn text-white mt-4 bg-teal-700 cursor-pointer class="bg-red-300" :disabled="!name" @click="go">
+      <v-btn mt-4 color="teal" :disabled="!name" @click="go">
         {{ t('button.go') }}
       </v-btn>
     </div>
+
+    <div>{{ date.format(new Date(), 'fullDateTime') }}</div>
+    <div>{{ date.locale }}</div>
 
     <v-dialog max-width="500">
       <template #activator="{ props: activatorProps }">
