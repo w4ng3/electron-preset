@@ -28,8 +28,6 @@ onMounted(() => {
       Please try pressing <code>F12</code> to open the devTool
     </p>
 
-    <Devices />
-
     <button p2 bg-red cursor-pointer @click="initWebHid">
       WEB-HID 搜设备
     </button>

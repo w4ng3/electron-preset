@@ -1,5 +1,6 @@
-appId: com.electron.app
+appId: com.njbandou.electron
 productName: electron-preset
+afterSign: build/scripts/notarize.js
 directories:
   buildResources: build
 files:
@@ -19,6 +20,11 @@ nsis:
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
 mac:
+  identity: null # 禁用签名
+  # identity: Nanjing Moving Bean Network Technology Co. LTD (X3K2KUWK6L)
+  # type: development # 如果打mas包，此处为distribution；如果是masdev包，此处为development
+  hardenedRuntime: true
+  gatekeeperAssess: false
   entitlementsInherit: build/entitlements.mac.plist
   extendInfo:
     - NSCameraUsageDescription: Application requests access to the device's camera.
@@ -26,6 +32,27 @@ mac:
     - NSDocumentsFolderUsageDescription: Application requests access to the user's Documents folder.
     - NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
   notarize: false
+  target:
+    - dmg
+    # - mas-dev
+    # - mas
+masDev:
+  type: development
+  identity: 18F19CD3BC2F7F9E62CE2E084EF47B594E8EAF02
+  hardenedRuntime: false
+  gatekeeperAssess: false
+  entitlements: build/entitlements.mas.plist
+  entitlementsInherit: build/entitlements.mas.inherit.plist
+  provisioningProfile: build/electron_masdev.provisionprofile
+mas:
+  type: distribution
+  identity: Nanjing Moving Bean Network Technology Co. LTD (X3K2KUWK6L)
+  icon: media/images/icon.icns
+  hardenedRuntime: false
+  entitlements: build/entitlements.mas.plist
+  entitlementsInherit: build/entitlements.mas.inherit.plist
+  entitlementsLoginHelper: build/entitlements.mas.loginhelper.plist
+  provisioningProfile: build/electron_store.provisionprofile
 dmg:
   artifactName: ${name}-${version}.${ext}
 linux:
