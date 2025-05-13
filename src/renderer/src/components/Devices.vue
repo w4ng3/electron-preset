@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import type { Device as HidDevice } from 'node-hid'
 import { onMounted, ref } from 'vue'
 
 const devices = ref<HidDevice[]>([])
