@@ -3,7 +3,7 @@ import { createVuetify } from 'vuetify'
 import { md3 } from 'vuetify/blueprints'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
-import { en, zhHans } from 'vuetify/locale'
+import { en, ja, zhHans } from 'vuetify/locale'
 import 'vuetify/styles'
 
 const vuetify = createVuetify({
@@ -13,7 +13,11 @@ const vuetify = createVuetify({
   locale: {
     locale: 'zhHans',
     fallback: 'zhHans',
-    messages: { zhHans, en },
+    messages: { zhHans, en, ja },
+  },
+  /** @see https://vuetifyjs.com/zh-Hans/features/theme/#typescript */
+  theme: {
+    defaultTheme: 'light',
   },
 })
 

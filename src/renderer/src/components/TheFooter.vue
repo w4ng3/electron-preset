@@ -1,10 +1,19 @@
 <script setup lang="ts">
-const { t, locale, availableLocales: locales } = useI18n()
+import { useLocale, useTheme } from 'vuetify'
 
+const { current } = useLocale()
+const { t, locale, availableLocales: locales } = useI18n()
 function toggleLocales() {
   const newLocale = locales[(locales.indexOf(locale.value) + 1) % locales.length]
   locale.value = newLocale
+  // 修改 vuetify 组件语言
+  current.value = newLocale
 }
+
+const vuetifyTheme = useTheme()
+watch(isDark, (val) => {
+  vuetifyTheme.global.name.value = val ? 'dark' : 'light'
+}, { immediate: true })
 </script>
 
 <template>
