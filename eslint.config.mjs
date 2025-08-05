@@ -16,7 +16,6 @@ export default antfu({
     'unocss/order': 'warn', // 对类选择器强制执行特定的顺序
     'unused-imports/no-unused-vars': 'warn',
     'symbol-description': 'warn',
-    'no-unused-vars': 'warn',
     'unused-imports/no-unused-imports': 'error',
     'test/consistent-test-it': ['error', { withinDescribe: 'test' }],
     'ts/no-explicit-any': 'off',

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { toggleTheme } from '@r/composables/dark'
 import { useLocale, useTheme } from 'vuetify'
 
 const { current } = useLocale()
@@ -22,10 +23,18 @@ watch(isDark, (val) => {
       <div i-carbon-campsite />
     </RouterLink>
 
-    <button
+    <!-- <button
       border-none
       class="outline-transparent"
       icon-btn :title="t('button.toggle_dark')" @click="toggleDark()"
+    >
+      <div i="carbon-sun dark:carbon-moon" />
+    </button> -->
+
+    <button
+      border-none
+      class="outline-transparent"
+      icon-btn :title="t('button.toggle_dark')" @click="toggleTheme"
     >
       <div i="carbon-sun dark:carbon-moon" />
     </button>
