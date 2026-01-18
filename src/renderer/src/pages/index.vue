@@ -48,8 +48,7 @@ const date = useDate()
     <div>{{ date.format(new Date(), 'fullDateTime') }}</div>
     <div>{{ date.locale }}</div>
 
-    <!-- 将会使用默认语言 -->
-    <v-select class="mt-3" />
+    <!-- <v-select class="mt-3" /> -->
 
     <div>黑暗主题: {{ isDark }} </div>
 
